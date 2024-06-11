@@ -2,7 +2,7 @@ package authorization
 
 import (
 	"crypto/rsa"
-	"io/ioutil"
+	"os"
 	"sync"
 
 	"github.com/dgrijalva/jwt-go"
@@ -25,12 +25,12 @@ func LoadFiles(privateFile, publicFile string) error {
 }
 
 func loadFiles(privateFile, publicFile string) error {
-	privateBytes, err := ioutil.ReadFile(privateFile)
+	privateBytes, err := os.ReadFile(privateFile)
 	if err != nil {
 		return err
 	}
 
-	publicBytes, err := ioutil.ReadFile(publicFile)
+	publicBytes, err := os.ReadFile(publicFile)
 	if err != nil {
 		return err
 	}
